@@ -132,12 +132,12 @@ export function showToast(message, type = 'success') {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: #090e17;
-    border: 1px solid ${type === 'success' ? '#ff5500' : '#0051ba'};
+    background: #0a1128;
+    border: 1px solid ${type === 'success' ? '#c5a059' : '#1c2541'};
     color: #ffffff;
     padding: 16px 24px;
     border-radius: 14px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+    box-shadow: 0 20px 50px rgba(10, 17, 40, 0.35);
     z-index: 9999;
     font-size: 0.95rem;
     display: flex;
@@ -147,7 +147,7 @@ export function showToast(message, type = 'success') {
     max-width: 90vw;
   `;
   toast.innerHTML = `
-    <span style="color: ${type === 'success' ? '#ff5500' : '#1a73e8'}; font-size: 1.3rem; font-weight: bold;">${type === 'success' ? '✓' : 'ℹ'}</span>
+    <span style="color: ${type === 'success' ? '#c5a059' : '#d8b878'}; font-size: 1.3rem; font-weight: bold;">${type === 'success' ? '✓' : 'ℹ'}</span>
     <div style="line-height: 1.5;">${message}</div>
   `;
   document.body.appendChild(toast);
@@ -322,7 +322,7 @@ function renderPortfolioGrid(filter = 'all') {
         <div class="project-client-name">${item.client}</div>
         <h3 class="project-title">${item.title}</h3>
         <p class="project-vol">${item.volume}</p>
-        <div style="margin-top: 14px; font-size: 0.88rem; color: var(--co-orange); font-weight: 700; display: flex; align-items: center; gap: 6px;">
+        <div style="margin-top: 14px; font-size: 0.88rem; color: #9c772b; font-weight: 700; display: flex; align-items: center; gap: 6px;">
           View Full Case Study →
         </div>
       </div>
@@ -388,29 +388,29 @@ function openCaseStudyModal(caseId) {
 
   if (content) {
     content.innerHTML = `
-      <div style="position: relative; aspect-ratio: 16/9; overflow: hidden; border-radius: 14px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+      <div style="position: relative; aspect-ratio: 16/9; overflow: hidden; border-radius: 14px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid rgba(197, 160, 89, 0.2);">
         <img src="${item.image}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: cover;">
         <span class="project-cat-badge" style="top: 16px; left: 16px;">${item.categoryLabel}</span>
       </div>
 
-      <div style="font-size: 0.85rem; color: var(--co-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">
+      <div style="font-size: 0.82rem; color: #9c772b; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">
         CLIENT: ${item.client}
       </div>
-      <h2 style="font-size: clamp(1.4rem, 3vw, 1.8rem); margin-bottom: 8px;">${item.title}</h2>
-      <p style="color: var(--co-orange); font-weight: 700; font-size: 0.95rem; margin-bottom: 24px;">${item.volume}</p>
+      <h2 style="font-size: clamp(1.4rem, 3vw, 1.8rem); margin-bottom: 8px; color: var(--text-dark);">${item.title}</h2>
+      <p style="color: #946e22; font-weight: 700; font-size: 0.95rem; margin-bottom: 24px;">${item.volume}</p>
 
       <div style="display: grid; grid-template-columns: 1fr; gap: 18px; margin-bottom: 24px;">
-        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--border-card);">
+        <div style="background: #faf8f5; padding: 20px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2);">
           <h4 style="color: var(--text-dark); font-size: 1rem; margin-bottom: 6px;">🎯 The Client Challenge</h4>
           <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">${item.challenge}</p>
         </div>
 
-        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--border-card);">
-          <h4 style="color: var(--co-blue); font-size: 1rem; margin-bottom: 6px;">⚙️ Circle One Solution</h4>
+        <div style="background: #fdfbf7; padding: 20px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2);">
+          <h4 style="color: #9c772b; font-size: 1rem; margin-bottom: 6px;">⚙️ Circle One Engineered Solution</h4>
           <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">${item.solution}</p>
         </div>
 
-        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--border-card);">
+        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid rgba(15, 23, 42, 0.08);">
           <h4 style="color: #16a34a; font-size: 1rem; margin-bottom: 6px;">📈 Results & Impact</h4>
           <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">${item.results}</p>
         </div>
@@ -420,14 +420,14 @@ function openCaseStudyModal(caseId) {
         <h4 style="font-size: 0.95rem; margin-bottom: 12px; color: var(--text-dark);">Deliverables Fabricated:</h4>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
           ${item.items.map(it => `
-            <span style="font-size: 0.82rem; background: var(--co-blue-subtle); border: 1px solid rgba(0,81,186,0.2); color: var(--co-blue); padding: 6px 14px; border-radius: 20px; font-weight: 600;">
+            <span style="font-size: 0.82rem; background: rgba(197, 160, 89, 0.1); border: 1px solid rgba(197, 160, 89, 0.25); color: #8c6720; padding: 6px 14px; border-radius: 20px; font-weight: 600;">
               ${it}
             </span>
           `).join('')}
         </div>
       </div>
 
-      <div style="display: flex; gap: 14px; justify-content: flex-end; border-top: 1px solid var(--border-card); padding-top: 20px; flex-wrap: wrap;">
+      <div style="display: flex; gap: 14px; justify-content: flex-end; border-top: 1px solid rgba(197, 160, 89, 0.2); padding-top: 20px; flex-wrap: wrap;">
         <button class="btn btn-outline btn-sm" id="modal-cancel-btn">Close</button>
         <button class="btn btn-orange btn-sm btn-shimmer" id="modal-inquire-btn">
           <span>Inquire About Similar Project →</span>
@@ -500,7 +500,7 @@ function setupContactForm() {
         particleCount: 80,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#0051ba', '#ff5500', '#1a73e8', '#ffd700']
+        colors: ['#c5a059', '#d8b878', '#e6cb90', '#0a1128', '#ffffff']
       });
     } catch {
       // Graceful fallback if confetti unavailable
@@ -524,7 +524,7 @@ function setupConsultationForm() {
         particleCount: 50,
         spread: 60,
         origin: { y: 0.7 },
-        colors: ['#0051ba', '#ff5500']
+        colors: ['#c5a059', '#d8b878', '#0a1128']
       });
     } catch {
       // Graceful fallback

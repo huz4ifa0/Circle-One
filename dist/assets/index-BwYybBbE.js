@@ -3,12 +3,12 @@
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: #090e17;
-    border: 1px solid ${t===`success`?`#ff5500`:`#0051ba`};
+    background: #0a1128;
+    border: 1px solid ${t===`success`?`#c5a059`:`#1c2541`};
     color: #ffffff;
     padding: 16px 24px;
     border-radius: 14px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+    box-shadow: 0 20px 50px rgba(10, 17, 40, 0.35);
     z-index: 9999;
     font-size: 0.95rem;
     display: flex;
@@ -17,7 +17,7 @@
     animation: toastIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     max-width: 90vw;
   `,r.innerHTML=`
-    <span style="color: ${t===`success`?`#ff5500`:`#1a73e8`}; font-size: 1.3rem; font-weight: bold;">${t===`success`?`✓`:`ℹ`}</span>
+    <span style="color: ${t===`success`?`#c5a059`:`#d8b878`}; font-size: 1.3rem; font-weight: bold;">${t===`success`?`✓`:`ℹ`}</span>
     <div style="line-height: 1.5;">${e}</div>
   `,document.body.appendChild(r),setTimeout(()=>{r.style.opacity=`0`,r.style.transform=`translateY(12px)`,r.style.transition=`all 0.3s ease`,setTimeout(()=>r.remove(),300)},4500)}function a(){let e=document.querySelector(`.site-nav`),t=document.querySelectorAll(`.desktop-nav .nav-link`),n=document.querySelectorAll(`.mobile-menu-links .mobile-nav-link`),r=document.getElementById(`mobile-toggle-btn`),i=document.getElementById(`mobile-drawer`),a=document.getElementById(`mobile-drawer-backdrop`);function o(){r?.classList.add(`active`),r?.setAttribute(`aria-expanded`,`true`),i?.classList.add(`open`),a?.classList.add(`open`),document.body.style.overflow=`hidden`}function s(){r?.classList.remove(`active`),r?.setAttribute(`aria-expanded`,`false`),i?.classList.remove(`open`),a?.classList.remove(`open`),document.body.style.overflow=``}r?.addEventListener(`click`,e=>{e.stopPropagation(),i?.classList.contains(`open`)?s():o()}),a?.addEventListener(`click`,s),document.addEventListener(`click`,e=>{i?.classList.contains(`open`)&&!i.contains(e.target)&&e.target!==r&&s()}),document.querySelectorAll(`a[href^="#"]`).forEach(e=>{e.addEventListener(`click`,function(e){let t=this.getAttribute(`href`);if(t&&t.length>1){let n=document.querySelector(t);n&&(e.preventDefault(),s(),n.scrollIntoView({behavior:`smooth`}))}})}),window.addEventListener(`scroll`,()=>{window.scrollY>30?e?.classList.add(`scrolled`):e?.classList.remove(`scrolled`)},{passive:!0});let c=document.querySelectorAll(`section[id]`);if(`IntersectionObserver`in window&&c.length>0){let e=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){let r=e.target.getAttribute(`id`);t.forEach(e=>{let t=e.getAttribute(`href`)===`#${r}`;e.classList.toggle(`active`,t)}),n.forEach(e=>{let t=e.getAttribute(`href`)===`#${r}`;e.classList.toggle(`active`,t)})}})},{root:null,rootMargin:`-20% 0px -55% 0px`,threshold:0});c.forEach(t=>e.observe(t))}}function o(){document.querySelectorAll(`.select-service-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.service,n=document.getElementById(`cf-project-type`);n&&t&&(n.value=t)})})}function s(){let e=document.querySelectorAll(`.reveal-on-scroll`);if(`IntersectionObserver`in window&&e.length>0){let t=new IntersectionObserver((e,t)=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add(`is-revealed`),t.unobserve(e.target))})},{root:null,threshold:.04,rootMargin:`0px 0px -20px 0px`});e.forEach(e=>t.observe(e))}else e.forEach(e=>e.classList.add(`is-revealed`))}function c(e=`all`){let t=document.getElementById(`portfolio-grid-container`);t&&(t.innerHTML=(e===`all`?n:n.filter(t=>t.category===e)).map(e=>`
     <div class="project-item" data-id="${e.id}" tabindex="0" role="button" aria-label="View case study for ${e.title}">
@@ -29,35 +29,35 @@
         <div class="project-client-name">${e.client}</div>
         <h3 class="project-title">${e.title}</h3>
         <p class="project-vol">${e.volume}</p>
-        <div style="margin-top: 14px; font-size: 0.88rem; color: var(--co-orange); font-weight: 700; display: flex; align-items: center; gap: 6px;">
+        <div style="margin-top: 14px; font-size: 0.88rem; color: #9c772b; font-weight: 700; display: flex; align-items: center; gap: 6px;">
           View Full Case Study →
         </div>
       </div>
     </div>
   `).join(``),t.querySelectorAll(`.project-item`).forEach(e=>{let t=()=>{let t=e.dataset.id;d(t)};e.addEventListener(`click`,t),e.addEventListener(`keydown`,e=>{(e.key===`Enter`||e.key===` `)&&(e.preventDefault(),t())})}))}function l(){let e=document.querySelectorAll(`.filter-btn`);e.forEach(t=>{t.addEventListener(`click`,()=>{e.forEach(e=>e.classList.remove(`active`)),t.classList.add(`active`);let n=t.dataset.filter;c(n)})})}function u(){let e=document.getElementById(`case-study-modal`),t=document.getElementById(`case-study-close-btn`);function n(){e?.classList.remove(`open`),document.body.style.overflow=``}t?.addEventListener(`click`,n),e?.addEventListener(`click`,t=>{t.target===e&&n()}),document.addEventListener(`keydown`,t=>{t.key===`Escape`&&e?.classList.contains(`open`)&&n()})}function d(e){let t=n.find(t=>t.id===e);if(!t)return;let r=document.getElementById(`case-study-modal`),i=document.getElementById(`case-study-modal-content`);i&&(i.innerHTML=`
-      <div style="position: relative; aspect-ratio: 16/9; overflow: hidden; border-radius: 14px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+      <div style="position: relative; aspect-ratio: 16/9; overflow: hidden; border-radius: 14px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid rgba(197, 160, 89, 0.2);">
         <img src="${t.image}" alt="${t.title}" style="width: 100%; height: 100%; object-fit: cover;">
         <span class="project-cat-badge" style="top: 16px; left: 16px;">${t.categoryLabel}</span>
       </div>
 
-      <div style="font-size: 0.85rem; color: var(--co-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">
+      <div style="font-size: 0.82rem; color: #9c772b; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">
         CLIENT: ${t.client}
       </div>
-      <h2 style="font-size: clamp(1.4rem, 3vw, 1.8rem); margin-bottom: 8px;">${t.title}</h2>
-      <p style="color: var(--co-orange); font-weight: 700; font-size: 0.95rem; margin-bottom: 24px;">${t.volume}</p>
+      <h2 style="font-size: clamp(1.4rem, 3vw, 1.8rem); margin-bottom: 8px; color: var(--text-dark);">${t.title}</h2>
+      <p style="color: #946e22; font-weight: 700; font-size: 0.95rem; margin-bottom: 24px;">${t.volume}</p>
 
       <div style="display: grid; grid-template-columns: 1fr; gap: 18px; margin-bottom: 24px;">
-        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--border-card);">
+        <div style="background: #faf8f5; padding: 20px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2);">
           <h4 style="color: var(--text-dark); font-size: 1rem; margin-bottom: 6px;">🎯 The Client Challenge</h4>
           <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">${t.challenge}</p>
         </div>
 
-        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--border-card);">
-          <h4 style="color: var(--co-blue); font-size: 1rem; margin-bottom: 6px;">⚙️ Circle One Solution</h4>
+        <div style="background: #fdfbf7; padding: 20px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2);">
+          <h4 style="color: #9c772b; font-size: 1rem; margin-bottom: 6px;">⚙️ Circle One Engineered Solution</h4>
           <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">${t.solution}</p>
         </div>
 
-        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--border-card);">
+        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid rgba(15, 23, 42, 0.08);">
           <h4 style="color: #16a34a; font-size: 1rem; margin-bottom: 6px;">📈 Results & Impact</h4>
           <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">${t.results}</p>
         </div>
@@ -67,17 +67,17 @@
         <h4 style="font-size: 0.95rem; margin-bottom: 12px; color: var(--text-dark);">Deliverables Fabricated:</h4>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
           ${t.items.map(e=>`
-            <span style="font-size: 0.82rem; background: var(--co-blue-subtle); border: 1px solid rgba(0,81,186,0.2); color: var(--co-blue); padding: 6px 14px; border-radius: 20px; font-weight: 600;">
+            <span style="font-size: 0.82rem; background: rgba(197, 160, 89, 0.1); border: 1px solid rgba(197, 160, 89, 0.25); color: #8c6720; padding: 6px 14px; border-radius: 20px; font-weight: 600;">
               ${e}
             </span>
           `).join(``)}
         </div>
       </div>
 
-      <div style="display: flex; gap: 14px; justify-content: flex-end; border-top: 1px solid var(--border-card); padding-top: 20px; flex-wrap: wrap;">
+      <div style="display: flex; gap: 14px; justify-content: flex-end; border-top: 1px solid rgba(197, 160, 89, 0.2); padding-top: 20px; flex-wrap: wrap;">
         <button class="btn btn-outline btn-sm" id="modal-cancel-btn">Close</button>
         <button class="btn btn-orange btn-sm btn-shimmer" id="modal-inquire-btn">
           <span>Inquire About Similar Project →</span>
         </button>
       </div>
-    `,document.getElementById(`modal-cancel-btn`)?.addEventListener(`click`,()=>{r?.classList.remove(`open`),document.body.style.overflow=``}),document.getElementById(`modal-inquire-btn`)?.addEventListener(`click`,()=>{r?.classList.remove(`open`),document.body.style.overflow=``;let e=document.getElementById(`contact`);if(e){e.scrollIntoView({behavior:`smooth`});let n=document.getElementById(`cf-project-type`);n&&(n.value=t.category===`events`?`event_merchandise`:t.category===`corporate`?`corporate_gifting`:`promotional_items`)}}),r?.classList.add(`open`),document.body.style.overflow=`hidden`)}function f(){let e=document.getElementById(`main-contact-form`);e&&e.addEventListener(`submit`,n=>{n.preventDefault();let a=document.getElementById(`cf-name`)?.value.trim(),o=document.getElementById(`cf-company`)?.value.trim(),s=document.getElementById(`cf-email`)?.value.trim(),c=document.getElementById(`cf-phone`)?.value.trim(),l=document.getElementById(`cf-project-type`)?.value,u=document.getElementById(`cf-budget`)?.value,d=document.getElementById(`cf-message`)?.value.trim();if(!a||!s||!o){i(`Please fill in your name, company, and work email.`,`error`);return}let f={id:`INQ-${Math.floor(1e3+Math.random()*9e3)}`,name:a,company:o,email:s,phone:c||`N/A`,projectType:l,budget:u||`Undisclosed`,message:d||`General Inquiry`,date:`Today, Just now`,status:`new`};r.unshift(f);try{t({particleCount:80,spread:70,origin:{y:.6},colors:[`#0051ba`,`#ff5500`,`#1a73e8`,`#ffd700`]})}catch{}e.reset(),i(`Thank you, ${a}! Your inquiry #${f.id} has been submitted. Our Karachi sales team will contact you within 24 hours.`,`success`)})}function p(){let e=document.getElementById(`consultation-schedule-form`);e?.addEventListener(`submit`,n=>{n.preventDefault();let r=document.getElementById(`sched-name`)?.value||`Client`;try{t({particleCount:50,spread:60,origin:{y:.7},colors:[`#0051ba`,`#ff5500`]})}catch{}i(`Consultation appointment confirmed for ${r}! Our team will send the calendar invite to your email.`,`success`),e.reset()})}function m(){let e=document.getElementById(`wa-widget-btn`),t=document.getElementById(`wa-popup-box`),n=document.getElementById(`wa-popup-close`),r=document.getElementById(`wa-badge-unread`),i=document.getElementById(`wa-widget-wrapper`);function a(){t?.classList.add(`open`),t?.setAttribute(`aria-hidden`,`false`),r&&(r.style.display=`none`)}function o(){t?.classList.remove(`open`),t?.setAttribute(`aria-hidden`,`true`)}e?.addEventListener(`click`,e=>{e.stopPropagation(),t?.classList.contains(`open`)?o():a()}),n?.addEventListener(`click`,e=>{e.stopPropagation(),o()});let s=e=>{t?.classList.contains(`open`)&&!i?.contains(e.target)&&o()};document.addEventListener(`click`,s),document.addEventListener(`touchend`,s,{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&t?.classList.contains(`open`)&&o()})}
+    `,document.getElementById(`modal-cancel-btn`)?.addEventListener(`click`,()=>{r?.classList.remove(`open`),document.body.style.overflow=``}),document.getElementById(`modal-inquire-btn`)?.addEventListener(`click`,()=>{r?.classList.remove(`open`),document.body.style.overflow=``;let e=document.getElementById(`contact`);if(e){e.scrollIntoView({behavior:`smooth`});let n=document.getElementById(`cf-project-type`);n&&(n.value=t.category===`events`?`event_merchandise`:t.category===`corporate`?`corporate_gifting`:`promotional_items`)}}),r?.classList.add(`open`),document.body.style.overflow=`hidden`)}function f(){let e=document.getElementById(`main-contact-form`);e&&e.addEventListener(`submit`,n=>{n.preventDefault();let a=document.getElementById(`cf-name`)?.value.trim(),o=document.getElementById(`cf-company`)?.value.trim(),s=document.getElementById(`cf-email`)?.value.trim(),c=document.getElementById(`cf-phone`)?.value.trim(),l=document.getElementById(`cf-project-type`)?.value,u=document.getElementById(`cf-budget`)?.value,d=document.getElementById(`cf-message`)?.value.trim();if(!a||!s||!o){i(`Please fill in your name, company, and work email.`,`error`);return}let f={id:`INQ-${Math.floor(1e3+Math.random()*9e3)}`,name:a,company:o,email:s,phone:c||`N/A`,projectType:l,budget:u||`Undisclosed`,message:d||`General Inquiry`,date:`Today, Just now`,status:`new`};r.unshift(f);try{t({particleCount:80,spread:70,origin:{y:.6},colors:[`#c5a059`,`#d8b878`,`#e6cb90`,`#0a1128`,`#ffffff`]})}catch{}e.reset(),i(`Thank you, ${a}! Your inquiry #${f.id} has been submitted. Our Karachi sales team will contact you within 24 hours.`,`success`)})}function p(){let e=document.getElementById(`consultation-schedule-form`);e?.addEventListener(`submit`,n=>{n.preventDefault();let r=document.getElementById(`sched-name`)?.value||`Client`;try{t({particleCount:50,spread:60,origin:{y:.7},colors:[`#c5a059`,`#d8b878`,`#0a1128`]})}catch{}i(`Consultation appointment confirmed for ${r}! Our team will send the calendar invite to your email.`,`success`),e.reset()})}function m(){let e=document.getElementById(`wa-widget-btn`),t=document.getElementById(`wa-popup-box`),n=document.getElementById(`wa-popup-close`),r=document.getElementById(`wa-badge-unread`),i=document.getElementById(`wa-widget-wrapper`);function a(){t?.classList.add(`open`),t?.setAttribute(`aria-hidden`,`false`),r&&(r.style.display=`none`)}function o(){t?.classList.remove(`open`),t?.setAttribute(`aria-hidden`,`true`)}e?.addEventListener(`click`,e=>{e.stopPropagation(),t?.classList.contains(`open`)?o():a()}),n?.addEventListener(`click`,e=>{e.stopPropagation(),o()});let s=e=>{t?.classList.contains(`open`)&&!i?.contains(e.target)&&o()};document.addEventListener(`click`,s),document.addEventListener(`touchend`,s,{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&t?.classList.contains(`open`)&&o()})}
