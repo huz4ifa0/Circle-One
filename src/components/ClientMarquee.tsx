@@ -37,7 +37,7 @@ export const ClientMarquee: React.FC = () => {
   return (
     <section
       aria-label="Our Esteemed Corporate Clients"
-      className="relative overflow-hidden border-y border-[#C5A059]/20 bg-white py-10 shadow-luxury-sm"
+      className="relative overflow-hidden border-y border-neutral-200/70 bg-white py-10 shadow-luxury-sm"
     >
       <div className="mx-auto max-w-7xl px-4 text-center">
         <motion.p
@@ -75,14 +75,20 @@ export const ClientMarquee: React.FC = () => {
               key={`track1-${idx}`}
               className={`group inline-flex items-center gap-3 rounded-full border px-6 py-3 font-semibold backdrop-blur-md transition-all duration-300 ${
                 client.featured
-                  ? "border-[#C5A059]/40 bg-gradient-to-r from-white to-[#FDFBF7]"
-                  : "border-[#C5A059]/20 bg-white/90"
-              } shadow-luxury-sm hover:-translate-y-0.5 hover:scale-[1.03] hover:border-[#C5A059] hover:shadow-[0_10px_25px_rgba(197,160,89,0.22)]`}
+                  ? "border-[#FF6B00]/30 bg-gradient-to-r from-white to-[#FFF9F5]"
+                  : "border-neutral-200/70 bg-white/95"
+              } shadow-sm hover:-translate-y-0.5 hover:scale-[1.03] hover:border-[#004AAD] hover:shadow-[0_10px_25px_rgba(0,74,173,0.14)]`}
             >
-              <span className="font-heading text-sm text-[#0A1128] transition-colors duration-200 group-hover:text-[#8F6D26] md:text-base">
+              <span className="font-heading text-sm text-[#0A1128] transition-colors duration-200 group-hover:text-[#004AAD] md:text-base">
                 {client.name}
               </span>
-              <span className="rounded-full border border-[#C5A059]/25 bg-[#C5A059]/10 px-2.5 py-0.5 text-[11px] font-semibold text-[#8C6720]">
+              <span
+                className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
+                  client.featured
+                    ? "border border-[#FF6B00]/30 bg-[#FF6B00]/10 text-[#FF6B00]"
+                    : "border border-[#004AAD]/20 bg-[#004AAD]/5 text-[#004AAD]"
+                }`}
+              >
                 {client.tag}
               </span>
             </div>
@@ -114,14 +120,20 @@ export const ClientMarquee: React.FC = () => {
               key={`track2-${idx}`}
               className={`group inline-flex items-center gap-3 rounded-full border px-6 py-3 font-semibold backdrop-blur-md transition-all duration-300 ${
                 client.featured
-                  ? "border-[#C5A059]/40 bg-gradient-to-r from-white to-[#FDFBF7]"
-                  : "border-[#C5A059]/20 bg-white/90"
-              } shadow-luxury-sm hover:-translate-y-0.5 hover:scale-[1.03] hover:border-[#C5A059] hover:shadow-[0_10px_25px_rgba(197,160,89,0.22)]`}
+                  ? "border-[#FF6B00]/30 bg-gradient-to-r from-white to-[#FFF9F5]"
+                  : "border-neutral-200/70 bg-white/95"
+              } shadow-sm hover:-translate-y-0.5 hover:scale-[1.03] hover:border-[#004AAD] hover:shadow-[0_10px_25px_rgba(0,74,173,0.14)]`}
             >
-              <span className="font-heading text-sm text-[#0A1128] transition-colors duration-200 group-hover:text-[#8F6D26] md:text-base">
+              <span className="font-heading text-sm text-[#0A1128] transition-colors duration-200 group-hover:text-[#004AAD] md:text-base">
                 {client.name}
               </span>
-              <span className="rounded-full border border-[#C5A059]/25 bg-[#C5A059]/10 px-2.5 py-0.5 text-[11px] font-semibold text-[#8C6720]">
+              <span
+                className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
+                  client.featured
+                    ? "border border-[#FF6B00]/30 bg-[#FF6B00]/10 text-[#FF6B00]"
+                    : "border border-[#004AAD]/20 bg-[#004AAD]/5 text-[#004AAD]"
+                }`}
+              >
                 {client.tag}
               </span>
             </div>

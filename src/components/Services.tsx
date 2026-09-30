@@ -64,7 +64,7 @@ export const Services: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#C5A059]/30 bg-[#C5A059]/10 px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-[#9C772B]"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF6B00]/30 bg-[#FF6B00]/10 px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-[#FF6B00]"
           >
             Our Core Services
           </motion.div>
@@ -74,10 +74,10 @@ export const Services: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mb-6 font-heading text-3xl font-extrabold text-[#0A1128] sm:text-4xl lg:text-5xl"
+            className="mb-6 font-heading text-3xl font-extrabold text-[#004AAD] sm:text-4xl lg:text-5xl"
           >
             End-to-End{" "}
-            <span className="font-serif italic font-semibold text-[#C5A059]">
+            <span className="font-serif italic font-semibold text-[#FF6B00]">
               Corporate Solutions
             </span>
           </motion.h2>
@@ -103,7 +103,7 @@ export const Services: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.12 }}
               whileHover={{ scale: 1.02, y: -6 }}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-[#C5A059]/20 bg-white/95 shadow-luxury-card backdrop-blur-xl transition-all duration-300 hover:border-[#C5A059]/50 hover:shadow-[0_24px_50px_-12px_rgba(197,160,89,0.25)]"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-200/60 bg-white/95 shadow-luxury-card backdrop-blur-xl transition-all duration-300 hover:border-[#004AAD]/40 hover:shadow-[0_24px_50px_-12px_rgba(0,74,173,0.16)]"
             >
               <div className="relative h-64 overflow-hidden">
                 <img
@@ -112,11 +112,11 @@ export const Services: React.FC = () => {
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
               </div>
 
               <div className="flex flex-1 flex-col p-8">
-                <h3 className="mb-3 font-heading text-xl font-bold text-[#0A1128] sm:text-2xl">
+                <h3 className="mb-3 font-heading text-xl font-bold text-[#004AAD] sm:text-2xl">
                   {service.title}
                 </h3>
                 <p className="mb-6 flex-1 text-sm leading-relaxed text-[#64748B]">
@@ -128,20 +128,20 @@ export const Services: React.FC = () => {
                   {service.chips.map((chip, idx) => (
                     <span
                       key={idx}
-                      className="rounded-full border border-[#C5A059]/20 bg-[#F8F9FA] px-3 py-1 text-xs font-medium text-[#334155]"
+                      className="rounded-full border border-neutral-200 bg-[#F8F9FA] px-3.5 py-1 text-xs font-medium text-[#334155]"
                     >
                       {chip}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between border-t border-[#0A1128]/5 pt-5">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#9C772B]">
+                <div className="flex items-center justify-between border-t border-neutral-100 pt-5">
+                  <span className="rounded-full bg-[#004AAD]/5 px-3 py-1 text-xs font-bold text-[#004AAD]">
                     {service.moq}
                   </span>
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0A1128] transition-colors duration-200 group-hover:text-[#C5A059]"
+                    className="inline-flex items-center gap-1.5 text-sm font-bold text-[#FF6B00] transition-colors duration-200 hover:text-[#E05E00]"
                   >
                     Inquire Service <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
                   </a>
@@ -157,11 +157,11 @@ export const Services: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-16 overflow-hidden rounded-3xl border border-[#C5A059]/25 bg-gradient-to-r from-white via-[#FCFBF8] to-white p-8 shadow-luxury-card backdrop-blur-xl md:p-12"
+          className="mt-16 overflow-hidden rounded-3xl border border-neutral-200/70 bg-gradient-to-r from-white via-[#FAF9F6] to-white p-8 shadow-luxury-card backdrop-blur-xl md:p-12"
         >
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#C5A059]/30 shadow-md">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#004AAD]/15 shadow-md">
                 <img
                   src="assets/images/executive-gift-box.jpg"
                   alt="Executive Presentation Hamper Detail"
@@ -171,10 +171,10 @@ export const Services: React.FC = () => {
             </div>
 
             <div className="lg:col-span-7">
-              <span className="mb-3 inline-block rounded-full bg-[#C5A059]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#9C772B]">
+              <span className="mb-3 inline-block rounded-full bg-[#004AAD]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#004AAD]">
                 The Circle One Advantage
               </span>
-              <h3 className="mb-4 font-heading text-2xl font-extrabold text-[#0A1128] sm:text-3xl">
+              <h3 className="mb-4 font-heading text-2xl font-extrabold text-[#004AAD] sm:text-3xl">
                 Bespoke Executive Gifting, Engineered to Perfection
               </h3>
               <p className="mb-6 text-sm leading-relaxed text-[#64748B] sm:text-base">
@@ -183,20 +183,20 @@ export const Services: React.FC = () => {
 
               <div className="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <div className="flex items-center gap-2.5 text-sm font-semibold text-[#0A1128]">
-                  <span className="text-[#C5A059]">✓</span> Complimentary 3D Digital Proofs
+                  <span className="text-[#FF6B00]">✓</span> Complimentary 3D Digital Proofs
                 </div>
                 <div className="flex items-center gap-2.5 text-sm font-semibold text-[#0A1128]">
-                  <span className="text-[#C5A059]">✓</span> Free Physical Pre-Production Sample
+                  <span className="text-[#FF6B00]">✓</span> Free Physical Pre-Production Sample
                 </div>
                 <div className="flex items-center gap-2.5 text-sm font-semibold text-[#0A1128]">
-                  <span className="text-[#C5A059]">✓</span> 100% Active FBR & SRB Compliance
+                  <span className="text-[#FF6B00]">✓</span> 100% Active FBR & SRB Compliance
                 </div>
                 <div className="flex items-center gap-2.5 text-sm font-semibold text-[#0A1128]">
-                  <span className="text-[#C5A059]">✓</span> Insured Express Nationwide Dispatch
+                  <span className="text-[#FF6B00]">✓</span> Insured Express Nationwide Dispatch
                 </div>
               </div>
 
-              <ExecutiveCTAButton href="#contact" variant="gold" size="md">
+              <ExecutiveCTAButton href="#contact" variant="orange" size="md">
                 Inquire With Procurement Desk
               </ExecutiveCTAButton>
             </div>

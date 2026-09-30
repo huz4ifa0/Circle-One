@@ -142,7 +142,7 @@ export const Portfolio: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#C5A059]/30 bg-[#C5A059]/10 px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-[#9C772B]"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#004AAD]/20 bg-[#004AAD]/5 px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-[#004AAD]"
           >
             Demonstrated Track Record
           </motion.div>
@@ -152,10 +152,10 @@ export const Portfolio: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mb-6 font-heading text-3xl font-extrabold text-[#0A1128] sm:text-4xl lg:text-5xl"
+            className="mb-6 font-heading text-3xl font-extrabold text-[#004AAD] sm:text-4xl lg:text-5xl"
           >
             Our Portfolio &{" "}
-            <span className="font-serif italic font-semibold text-[#C5A059]">
+            <span className="font-serif italic font-semibold text-[#FF6B00]">
               Case Studies
             </span>
           </motion.h2>
@@ -171,7 +171,7 @@ export const Portfolio: React.FC = () => {
           </motion.p>
         </div>
 
-        {/* Filter Tabs */}
+        {/* Pill-shaped Filter Tabs with Vibrant Orange #FF6B00 Active State */}
         <div className="mb-12 flex flex-wrap items-center justify-center gap-3">
           {categories.map((tab) => {
             const isActive = activeCategory === tab.key;
@@ -179,10 +179,10 @@ export const Portfolio: React.FC = () => {
               <button
                 key={tab.key}
                 onClick={() => setActiveCategory(tab.key)}
-                className={`relative rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-300 ${
+                className={`relative rounded-full px-7 py-2.5 text-sm font-bold transition-all duration-300 ${
                   isActive
-                    ? "bg-gradient-to-r from-[#C5A059] to-[#A8833B] text-white shadow-luxury-gold"
-                    : "border border-[#C5A059]/25 bg-white text-[#64748B] hover:border-[#C5A059] hover:text-[#0A1128]"
+                    ? "bg-[#FF6B00] text-white shadow-[0_6px_20px_rgba(255,107,0,0.35)]"
+                    : "border border-neutral-200/80 bg-white text-[#64748B] hover:border-[#004AAD] hover:text-[#004AAD]"
                 }`}
               >
                 {tab.label}
@@ -204,7 +204,7 @@ export const Portfolio: React.FC = () => {
                 transition={{ duration: 0.4 }}
                 whileHover={{ scale: 1.02, y: -6 }}
                 onClick={() => setSelectedCase(project)}
-                className="group cursor-pointer overflow-hidden rounded-2xl border border-[#C5A059]/20 bg-white shadow-luxury-card backdrop-blur-xl transition-all duration-300 hover:border-[#C5A059]/50 hover:shadow-[0_24px_50px_-12px_rgba(197,160,89,0.25)]"
+                className="group cursor-pointer overflow-hidden rounded-2xl border border-neutral-200/70 bg-white shadow-luxury-card backdrop-blur-xl transition-all duration-300 hover:border-[#004AAD]/40 hover:shadow-[0_24px_50px_-12px_rgba(0,74,173,0.16)]"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
@@ -213,21 +213,21 @@ export const Portfolio: React.FC = () => {
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <span className="absolute left-4 top-4 rounded-full border border-[#C5A059]/30 bg-white/95 px-3 py-1 text-xs font-bold text-[#8C6720] shadow-sm backdrop-blur-md">
+                  <span className="absolute left-4 top-4 rounded-full border border-white/80 bg-white/95 px-3 py-1 text-xs font-bold text-[#FF6B00] shadow-sm backdrop-blur-md">
                     {project.categoryLabel}
                   </span>
                 </div>
 
                 <div className="p-6">
-                  <div className="mb-2 text-xs font-bold uppercase tracking-wider text-[#9C772B]">
+                  <div className="mb-2 text-xs font-bold uppercase tracking-wider text-[#004AAD]">
                     {project.client}
                   </div>
-                  <h3 className="mb-2 font-heading text-lg font-bold text-[#0A1128] transition-colors duration-200 group-hover:text-[#C5A059]">
+                  <h3 className="mb-2 font-heading text-lg font-bold text-[#0A1128] transition-colors duration-200 group-hover:text-[#004AAD]">
                     {project.title}
                   </h3>
                   <p className="text-xs font-medium text-[#64748B]">{project.volume}</p>
 
-                  <div className="mt-4 flex items-center gap-1.5 text-xs font-bold text-[#9C772B] transition-transform duration-300 group-hover:translate-x-1">
+                  <div className="mt-4 flex items-center gap-1.5 text-xs font-bold text-[#FF6B00] transition-transform duration-300 group-hover:translate-x-1">
                     View Full Case Study →
                   </div>
                 </div>
@@ -251,44 +251,44 @@ export const Portfolio: React.FC = () => {
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.95, y: 20 }}
                 onClick={(e) => e.stopPropagation()}
-                className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-[#C5A059]/30 bg-white p-8 shadow-2xl"
+                className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-neutral-200 bg-white p-8 shadow-2xl"
               >
                 <button
                   onClick={() => setSelectedCase(null)}
-                  className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-[#C5A059]/30 bg-[#F8F9FA] text-[#0A1128] transition-transform hover:rotate-90 hover:bg-[#C5A059]/10"
+                  className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-[#F8F9FA] text-[#0A1128] transition-transform hover:rotate-90 hover:bg-[#FF6B00]/10"
                 >
                   ✕
                 </button>
 
-                <div className="relative mb-6 aspect-video overflow-hidden rounded-2xl border border-[#C5A059]/25 shadow-md">
+                <div className="relative mb-6 aspect-video overflow-hidden rounded-2xl border border-neutral-200 shadow-md">
                   <img
                     src={selectedCase.image}
                     alt={selectedCase.title}
                     className="h-full w-full object-cover"
                   />
-                  <span className="absolute left-4 top-4 rounded-full border border-[#C5A059]/30 bg-white/95 px-3 py-1 text-xs font-bold text-[#8C6720]">
+                  <span className="absolute left-4 top-4 rounded-full border border-white bg-white/95 px-3 py-1 text-xs font-bold text-[#FF6B00]">
                     {selectedCase.categoryLabel}
                   </span>
                 </div>
 
-                <div className="mb-2 text-xs font-bold uppercase tracking-widest text-[#9C772B]">
+                <div className="mb-2 text-xs font-bold uppercase tracking-widest text-[#004AAD]">
                   Client: {selectedCase.client}
                 </div>
-                <h3 className="mb-2 font-heading text-2xl font-bold text-[#0A1128]">
+                <h3 className="mb-2 font-heading text-2xl font-bold text-[#004AAD]">
                   {selectedCase.title}
                 </h3>
-                <p className="mb-6 text-sm font-semibold text-[#C5A059]">{selectedCase.volume}</p>
+                <p className="mb-6 text-sm font-semibold text-[#FF6B00]">{selectedCase.volume}</p>
 
                 <div className="mb-6 space-y-4">
-                  <div className="rounded-xl border border-[#C5A059]/20 bg-[#FAF8F5] p-4">
+                  <div className="rounded-xl border border-neutral-200/80 bg-[#F8F9FA] p-4">
                     <h4 className="mb-1 text-xs font-bold uppercase tracking-wider text-[#0A1128]">
                       🎯 Challenge
                     </h4>
                     <p className="text-sm text-[#64748B]">{selectedCase.challenge}</p>
                   </div>
 
-                  <div className="rounded-xl border border-[#C5A059]/20 bg-[#FDFBF7] p-4">
-                    <h4 className="mb-1 text-xs font-bold uppercase tracking-wider text-[#9C772B]">
+                  <div className="rounded-xl border border-[#004AAD]/20 bg-[#004AAD]/5 p-4">
+                    <h4 className="mb-1 text-xs font-bold uppercase tracking-wider text-[#004AAD]">
                       ⚙️ Circle One Solution
                     </h4>
                     <p className="text-sm text-[#64748B]">{selectedCase.solution}</p>
@@ -302,17 +302,17 @@ export const Portfolio: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex justify-end gap-3 border-t border-[#C5A059]/20 pt-6">
+                <div className="flex justify-end gap-3 border-t border-neutral-200 pt-6">
                   <button
                     onClick={() => setSelectedCase(null)}
-                    className="rounded-xl border border-[#C5A059]/30 px-5 py-2.5 text-sm font-semibold text-[#0A1128] hover:bg-[#F8F9FA]"
+                    className="rounded-full border border-neutral-300 px-6 py-2.5 text-sm font-semibold text-[#0A1128] hover:bg-[#F8F9FA]"
                   >
                     Close
                   </button>
                   <a
                     href="#contact"
                     onClick={() => setSelectedCase(null)}
-                    className="rounded-xl bg-gradient-to-r from-[#C5A059] to-[#A8833B] px-6 py-2.5 text-sm font-semibold text-white shadow-luxury-gold hover:from-[#D8B878] hover:to-[#C5A059]"
+                    className="rounded-full bg-[#FF6B00] px-7 py-2.5 text-sm font-bold text-white shadow-[0_6px_20px_rgba(255,107,0,0.35)] hover:bg-[#E05E00]"
                   >
                     Inquire Similar Project →
                   </a>

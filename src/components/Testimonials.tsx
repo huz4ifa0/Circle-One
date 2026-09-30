@@ -9,6 +9,7 @@ interface Testimonial {
   company: string;
   quote: string;
   initials: string;
+  avatarBg: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -19,6 +20,7 @@ const testimonials: Testimonial[] = [
     quote:
       "Circle One delivered exceptional executive kits for our annual partner meet. The thermal engraving and gold foiling were immaculate. Truly the most reliable vendor in Karachi.",
     initials: "MH",
+    avatarBg: "from-[#004AAD] to-[#002766]",
   },
   {
     name: "Fatima Siddiqui",
@@ -27,6 +29,7 @@ const testimonials: Testimonial[] = [
     quote:
       "Delivering 3,500 custom drinkware sets across 14 cities in 10 days sounded impossible, but Circle One pulled it off flawlessly. Best corporate gifting partner we've worked with.",
     initials: "FS",
+    avatarBg: "from-[#FF6B00] to-[#C95500]",
   },
   {
     name: "Hassan Mahmood",
@@ -35,6 +38,7 @@ const testimonials: Testimonial[] = [
     quote:
       "Highly professional team. Their in-house sampling process gave our leadership complete confidence before we placed our bulk apparel order. 10/10 quality.",
     initials: "HM",
+    avatarBg: "from-emerald-600 to-emerald-800",
   },
 ];
 
@@ -50,7 +54,7 @@ export const Testimonials: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#C5A059]/30 bg-[#C5A059]/10 px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-[#9C772B]"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF6B00]/30 bg-[#FF6B00]/10 px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-[#FF6B00]"
           >
             Client Endorsements
           </motion.div>
@@ -60,10 +64,10 @@ export const Testimonials: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mb-6 font-heading text-3xl font-extrabold text-[#0A1128] sm:text-4xl lg:text-5xl"
+            className="mb-6 font-heading text-3xl font-extrabold text-[#004AAD] sm:text-4xl lg:text-5xl"
           >
             What Corporate Leaders{" "}
-            <span className="font-serif italic font-semibold text-[#C5A059]">Say</span>
+            <span className="font-serif italic font-semibold text-[#FF6B00]">Say</span>
           </motion.h2>
         </div>
 
@@ -77,11 +81,11 @@ export const Testimonials: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               whileHover={{ scale: 1.02, y: -6 }}
-              className="flex flex-col justify-between rounded-2xl border border-[#C5A059]/20 bg-white p-8 shadow-luxury-card backdrop-blur-xl transition-all duration-300 hover:border-[#C5A059]/50 hover:shadow-[0_24px_50px_-12px_rgba(197,160,89,0.22)]"
+              className="flex flex-col justify-between rounded-2xl border border-neutral-200/80 bg-white p-8 shadow-luxury-card backdrop-blur-xl transition-all duration-300 hover:border-[#004AAD]/40 hover:shadow-[0_24px_50px_-12px_rgba(0,74,173,0.16)]"
             >
               <div>
                 <div className="mb-4 flex items-center justify-between">
-                  <div className="text-base tracking-widest text-[#C5A059]">★★★★★</div>
+                  <div className="text-base tracking-widest text-[#FF6B00]">★★★★★</div>
                   <span className="rounded-full border border-emerald-500/20 bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700">
                     ✓ Verified Enterprise
                   </span>
@@ -92,8 +96,10 @@ export const Testimonials: React.FC = () => {
                 </p>
               </div>
 
-              <div className="flex items-center gap-3 border-t border-[#0A1128]/5 pt-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#C5A059]/30 bg-gradient-to-br from-[#0A1128] to-[#1C2541] text-xs font-bold text-[#C5A059] shadow-sm">
+              <div className="flex items-center gap-3 border-t border-neutral-100 pt-4">
+                <div
+                  className={`flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br ${item.avatarBg} text-xs font-bold text-white shadow-sm`}
+                >
                   {item.initials}
                 </div>
                 <div>
