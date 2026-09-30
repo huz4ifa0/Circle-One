@@ -115,21 +115,22 @@ const portfolioData: CaseStudy[] = [
   },
 ];
 
-export const Portfolio: React.FC = () => {
+export const Portfolio: React.FC = React.memo(() => {
   const [activeCategory, setActiveCategory] = useState<"all" | "corporate" | "events" | "promotional">("all");
   const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null);
 
-  const filteredProjects =
-    activeCategory === "all"
+  const filteredProjects = React.useMemo(() => {
+    return activeCategory === "all"
       ? portfolioData
       : portfolioData.filter((item) => item.category === activeCategory);
+  }, [activeCategory]);
 
-  const categories = [
+  const categories = React.useMemo(() => [
     { key: "all", label: "All Projects" },
     { key: "corporate", label: "Corporate Gifting" },
     { key: "events", label: "Event Merchandise" },
     { key: "promotional", label: "Promotional Items" },
-  ] as const;
+  ] as const, []);
 
   return (
     <section id="portfolio" className="relative bg-[#FAFAFA] py-24 md:py-32">
@@ -138,20 +139,20 @@ export const Portfolio: React.FC = () => {
         {/* Section Header */}
         <div className="mx-auto mb-16 max-w-3xl text-center">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#004AAD]/20 bg-[#004AAD]/5 px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-[#004AAD]"
           >
             Demonstrated Track Record
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.08, ease: "easeOut" }}
             className="mb-6 font-heading text-3xl font-extrabold text-[#004AAD] sm:text-4xl lg:text-5xl"
           >
             Our Portfolio &{" "}
@@ -161,10 +162,10 @@ export const Portfolio: React.FC = () => {
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.16, ease: "easeOut" }}
             className="text-base leading-relaxed text-[#64748B] sm:text-lg"
           >
             Click any project to inspect the challenge, engineered manufacturing solution, and enterprise deliverables produced for Pakistan's leading corporations.
@@ -179,7 +180,7 @@ export const Portfolio: React.FC = () => {
               <button
                 key={tab.key}
                 onClick={() => setActiveCategory(tab.key)}
-                className={`relative rounded-full px-7 py-2.5 text-sm font-bold transition-all duration-300 ${
+                className={`relative rounded-full px-7 py-2.5 text-sm font-bold transition-all duration-200 will-change-transform [transform:translate3d(0,0,0)] hover:-translate-y-0.5 active:scale-95 ${
                   isActive
                     ? "bg-[#FF6B00] text-white shadow-[0_6px_20px_rgba(255,107,0,0.35)]"
                     : "border border-neutral-200/80 bg-white text-[#64748B] hover:border-[#004AAD] hover:text-[#004AAD]"
@@ -191,29 +192,28 @@ export const Portfolio: React.FC = () => {
           })}
         </div>
 
-        {/* Projects Grid with Staggered Framer Motion */}
-        <motion.div layout className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence>
+        {/* Projects Grid with GPU Accelerated CSS Transitions */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
               <motion.div
-                layout
                 key={project.id}
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                whileHover={{ scale: 1.02, y: -6 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
                 onClick={() => setSelectedCase(project)}
-                className="group cursor-pointer overflow-hidden rounded-2xl border border-neutral-200/70 bg-white shadow-luxury-card backdrop-blur-xl transition-all duration-300 hover:border-[#004AAD]/40 hover:shadow-[0_24px_50px_-12px_rgba(0,74,173,0.16)]"
+                className="group cursor-pointer overflow-hidden rounded-2xl border border-neutral-200/70 bg-white shadow-luxury-card transition-all duration-300 will-change-transform [transform:translate3d(0,0,0)] hover:-translate-y-1.5 hover:scale-[1.01] hover:border-[#004AAD]/40 hover:shadow-[0_24px_50px_-12px_rgba(0,74,173,0.16)]"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 will-change-transform [transform:translate3d(0,0,0)]"
                   />
-                  <span className="absolute left-4 top-4 rounded-full border border-white/80 bg-white/95 px-3 py-1 text-xs font-bold text-[#FF6B00] shadow-sm backdrop-blur-md">
+                  <span className="absolute left-4 top-4 rounded-full border border-white/80 bg-white/95 px-3 py-1 text-xs font-bold text-[#FF6B00] shadow-sm backdrop-blur-sm">
                     {project.categoryLabel}
                   </span>
                 </div>
@@ -227,14 +227,14 @@ export const Portfolio: React.FC = () => {
                   </h3>
                   <p className="text-xs font-medium text-[#64748B]">{project.volume}</p>
 
-                  <div className="mt-4 flex items-center gap-1.5 text-xs font-bold text-[#FF6B00] transition-transform duration-300 group-hover:translate-x-1">
+                  <div className="mt-4 flex items-center gap-1.5 text-xs font-bold text-[#FF6B00] transition-transform duration-200 group-hover:translate-x-1">
                     View Full Case Study →
                   </div>
                 </div>
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
 
         {/* Modal Lightbox */}
         <AnimatePresence>
@@ -325,6 +325,8 @@ export const Portfolio: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+Portfolio.displayName = "Portfolio";
 
 export default Portfolio;

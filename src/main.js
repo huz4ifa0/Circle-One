@@ -225,12 +225,13 @@ function setupNavigation() {
     });
   });
 
-  // Navbar Scroll Shadow
+  // Navbar Scroll Shadow with state guard (zero DOM thrashing on scroll)
+  let isNavScrolled = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
-      navBar?.classList.add('scrolled');
-    } else {
-      navBar?.classList.remove('scrolled');
+    const shouldBeScrolled = window.scrollY > 30;
+    if (shouldBeScrolled !== isNavScrolled) {
+      isNavScrolled = shouldBeScrolled;
+      navBar?.classList.toggle('scrolled', isNavScrolled);
     }
   }, { passive: true });
 

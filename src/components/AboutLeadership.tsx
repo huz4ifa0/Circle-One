@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export const AboutLeadership: React.FC = () => {
+export const AboutLeadership: React.FC = React.memo(() => {
   return (
     <section id="about" className="relative bg-white py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -11,20 +11,20 @@ export const AboutLeadership: React.FC = () => {
         {/* About Hero Box */}
         <div className="mx-auto mb-20 max-w-4xl text-center">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#004AAD]/20 bg-[#004AAD]/5 px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-[#004AAD]"
           >
             Our Story & Heritage
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.08, ease: "easeOut" }}
             className="mb-6 font-heading text-3xl font-extrabold text-[#004AAD] sm:text-4xl lg:text-5xl"
           >
             Karachi's Trusted Partner for{" "}
@@ -34,25 +34,24 @@ export const AboutLeadership: React.FC = () => {
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.16, ease: "easeOut" }}
             className="text-base leading-relaxed text-[#64748B] sm:text-lg"
           >
             Founded to replace fragmented promotional middlemen with an elite, consultation-driven corporate gifting house. Operating from Nazimabad No. 4 and our Korangi industrial fabrication facility, Circle One combines deep Pakistani market insight with world-class craftsmanship benchmarks. Over 15+ years, we have delivered 1.2M+ items with unwavering precision.
           </motion.p>
         </div>
 
-        {/* 3 Core Competencies */}
+        {/* 3 Core Competencies with GPU CSS transforms */}
         <div className="mb-24 grid grid-cols-1 gap-8 md:grid-cols-3">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            whileHover={{ scale: 1.02, y: -6 }}
-            className="rounded-2xl border border-neutral-200/80 bg-[#FAFAFA] p-8 shadow-luxury-card backdrop-blur-xl transition-all duration-300 hover:border-[#004AAD]/40 hover:shadow-[0_24px_50px_-12px_rgba(0,74,173,0.16)]"
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="rounded-2xl border border-neutral-200/80 bg-[#FAFAFA] p-8 shadow-luxury-card transition-all duration-300 will-change-transform [transform:translate3d(0,0,0)] hover:-translate-y-1.5 hover:scale-[1.01] hover:border-[#004AAD]/40 hover:shadow-[0_24px_50px_-12px_rgba(0,74,173,0.16)]"
           >
             <div className="mb-4 text-3xl">🏭</div>
             <h3 className="mb-3 font-heading text-xl font-bold text-[#004AAD]">
@@ -64,12 +63,11 @@ export const AboutLeadership: React.FC = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            whileHover={{ scale: 1.02, y: -6 }}
-            className="rounded-2xl border border-neutral-200/80 bg-[#FAFAFA] p-8 shadow-luxury-card backdrop-blur-xl transition-all duration-300 hover:border-[#FF6B00]/40 hover:shadow-[0_24px_50px_-12px_rgba(255,107,0,0.16)]"
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+            className="rounded-2xl border border-neutral-200/80 bg-[#FAFAFA] p-8 shadow-luxury-card transition-all duration-300 will-change-transform [transform:translate3d(0,0,0)] hover:-translate-y-1.5 hover:scale-[1.01] hover:border-[#FF6B00]/40 hover:shadow-[0_24px_50px_-12px_rgba(255,107,0,0.16)]"
           >
             <div className="mb-4 text-3xl">📜</div>
             <h3 className="mb-3 font-heading text-xl font-bold text-[#FF6B00]">
@@ -81,12 +79,11 @@ export const AboutLeadership: React.FC = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            whileHover={{ scale: 1.02, y: -6 }}
-            className="rounded-2xl border border-neutral-200/80 bg-[#FAFAFA] p-8 shadow-luxury-card backdrop-blur-xl transition-all duration-300 hover:border-emerald-500/40 hover:shadow-[0_24px_50px_-12px_rgba(16,185,129,0.16)]"
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+            className="rounded-2xl border border-neutral-200/80 bg-[#FAFAFA] p-8 shadow-luxury-card transition-all duration-300 will-change-transform [transform:translate3d(0,0,0)] hover:-translate-y-1.5 hover:scale-[1.01] hover:border-emerald-500/40 hover:shadow-[0_24px_50px_-12px_rgba(16,185,129,0.16)]"
           >
             <div className="mb-4 text-3xl">🔍</div>
             <h3 className="mb-3 font-heading text-xl font-bold text-emerald-700">
@@ -116,12 +113,11 @@ export const AboutLeadership: React.FC = () => {
             
             {/* Tariq Mehmood: Founder / CEO */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ scale: 1.02, y: -8 }}
-              className="relative overflow-hidden rounded-3xl border border-[#004AAD]/20 bg-gradient-to-b from-white via-[#F8FBFF] to-white p-10 text-center shadow-luxury-card backdrop-blur-xl transition-all duration-300 hover:border-[#004AAD]/50 hover:shadow-[0_28px_65px_-12px_rgba(0,74,173,0.22)]"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.55, ease: "easeOut" }}
+              className="relative overflow-hidden rounded-3xl border border-[#004AAD]/20 bg-gradient-to-b from-white via-[#F8FBFF] to-white p-10 text-center shadow-luxury-card transition-all duration-300 will-change-transform [transform:translate3d(0,0,0)] hover:-translate-y-2 hover:scale-[1.01] hover:border-[#004AAD]/50 hover:shadow-[0_28px_65px_-12px_rgba(0,74,173,0.22)]"
             >
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#004AAD] via-[#1A67D2] to-[#004AAD]" />
 
@@ -149,12 +145,11 @@ export const AboutLeadership: React.FC = () => {
 
             {/* Khalid Bashir: Co-Founder */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ scale: 1.02, y: -8 }}
-              className="relative overflow-hidden rounded-3xl border border-[#FF6B00]/25 bg-gradient-to-b from-white via-[#FFF9F5] to-white p-10 text-center shadow-luxury-card backdrop-blur-xl transition-all duration-300 hover:border-[#FF6B00]/50 hover:shadow-[0_28px_65px_-12px_rgba(255,107,0,0.22)]"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.55, delay: 0.12, ease: "easeOut" }}
+              className="relative overflow-hidden rounded-3xl border border-[#FF6B00]/25 bg-gradient-to-b from-white via-[#FFF9F5] to-white p-10 text-center shadow-luxury-card transition-all duration-300 will-change-transform [transform:translate3d(0,0,0)] hover:-translate-y-2 hover:scale-[1.01] hover:border-[#FF6B00]/50 hover:shadow-[0_28px_65px_-12px_rgba(255,107,0,0.22)]"
             >
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#FF6B00] via-[#FFA34D] to-[#FF6B00]" />
 
@@ -184,10 +179,10 @@ export const AboutLeadership: React.FC = () => {
 
           {/* Executive Quality Pledge Banner */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="mt-12 flex flex-col items-center gap-4 rounded-2xl border border-[#004AAD]/20 bg-[#F8FBFF] p-6 text-center sm:flex-row sm:text-left"
           >
             <div className="text-3xl">🛡️</div>
@@ -200,6 +195,8 @@ export const AboutLeadership: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+AboutLeadership.displayName = "AboutLeadership";
 
 export default AboutLeadership;

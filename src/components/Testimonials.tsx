@@ -42,7 +42,7 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-export const Testimonials: React.FC = () => {
+export const Testimonials: React.FC = React.memo(() => {
   return (
     <section id="testimonials" className="relative bg-[#FAFAFA] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -50,20 +50,20 @@ export const Testimonials: React.FC = () => {
         {/* Header */}
         <div className="mx-auto mb-16 max-w-3xl text-center">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF6B00]/30 bg-[#FF6B00]/10 px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-[#FF6B00]"
           >
             Client Endorsements
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: 0.08, ease: "easeOut" }}
             className="mb-6 font-heading text-3xl font-extrabold text-[#004AAD] sm:text-4xl lg:text-5xl"
           >
             What Corporate Leaders{" "}
@@ -71,17 +71,16 @@ export const Testimonials: React.FC = () => {
           </motion.h2>
         </div>
 
-        {/* Testimonials Grid */}
+        {/* Testimonials Grid with GPU CSS transforms */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {testimonials.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              whileHover={{ scale: 1.02, y: -6 }}
-              className="flex flex-col justify-between rounded-2xl border border-neutral-200/80 bg-white p-8 shadow-luxury-card backdrop-blur-xl transition-all duration-300 hover:border-[#004AAD]/40 hover:shadow-[0_24px_50px_-12px_rgba(0,74,173,0.16)]"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+              className="flex flex-col justify-between rounded-2xl border border-neutral-200/80 bg-white p-8 shadow-luxury-card transition-all duration-300 will-change-transform [transform:translate3d(0,0,0)] hover:-translate-y-1.5 hover:scale-[1.01] hover:border-[#004AAD]/40 hover:shadow-[0_24px_50px_-12px_rgba(0,74,173,0.16)]"
             >
               <div>
                 <div className="mb-4 flex items-center justify-between">
@@ -116,6 +115,8 @@ export const Testimonials: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+Testimonials.displayName = "Testimonials";
 
 export default Testimonials;

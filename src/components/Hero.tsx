@@ -1,39 +1,39 @@
 "use client";
 
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "framer-motion";
 import ExecutiveCTAButton from "./ExecutiveCTAButton";
 
-export const Hero: React.FC = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.14,
-        delayChildren: 0.1,
-      },
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.05,
     },
-  };
+  },
+};
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 22 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-    },
-  };
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
 
+export const Hero: React.FC = memo(() => {
   return (
     <section
       id="home"
-      className="relative flex min-h-[92vh] items-center overflow-hidden bg-[#FAFAFA] pb-16 pt-28 md:pt-32"
+      className="relative flex min-h-[90vh] items-center overflow-hidden bg-[#FAFAFA] pb-16 pt-26 md:pt-32"
     >
-      {/* Subtle Ambient Blurred Royal Blue & Vibrant Orange Glows */}
+      {/* Lightweight GPU-friendly Ambient Glows (Using pure CSS gradient layers, avoiding CPU re-rasterization) */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute -top-36 right-0 h-[600px] w-[600px] rounded-full bg-gradient-to-br from-[#004AAD]/10 via-[#1A67D2]/5 to-transparent blur-[130px]" />
-        <div className="absolute bottom-0 left-[-100px] h-[550px] w-[550px] rounded-full bg-gradient-to-tr from-[#FF6B00]/10 via-[#FF8533]/4 to-transparent blur-[140px]" />
+        <div className="absolute -top-32 right-0 h-[480px] w-[480px] rounded-full bg-gradient-to-br from-[#004AAD]/8 to-transparent blur-[100px] [transform:translate3d(0,0,0)]" />
+        <div className="absolute bottom-0 left-[-80px] h-[450px] w-[450px] rounded-full bg-gradient-to-tr from-[#FF6B00]/8 to-transparent blur-[100px] [transform:translate3d(0,0,0)]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -74,7 +74,7 @@ export const Hero: React.FC = () => {
               We transform your corporate brand vision into tangible reality. From bespoke VIP executive hampers to high-volume summit apparel, we deliver precision manufacturing, NTN-compliant billing, and white-glove corporate fulfillment nationwide.
             </motion.p>
 
-            {/* Button Actions: Pill-shaped with vibrant orange background and hover glow */}
+            {/* Button Actions: Pill-shaped with vibrant orange background and GPU hover glow */}
             <motion.div
               variants={itemVariants}
               className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center"
@@ -87,10 +87,10 @@ export const Hero: React.FC = () => {
               </ExecutiveCTAButton>
             </motion.div>
 
-            {/* Executive Stats Ribbon */}
+            {/* Executive Stats Ribbon with Lightweight Styling */}
             <motion.div
               variants={itemVariants}
-              className="relative max-w-xl overflow-hidden rounded-2xl border border-[#004AAD]/15 bg-white/95 p-5 shadow-luxury-card backdrop-blur-xl"
+              className="relative max-w-xl overflow-hidden rounded-2xl border border-[#004AAD]/15 bg-white/95 p-5 shadow-luxury-card"
             >
               <div className="absolute inset-x-0 top-0 h-[2.5px] bg-gradient-to-r from-[#004AAD] via-[#FF6B00] to-[#004AAD]" />
               
@@ -134,25 +134,26 @@ export const Hero: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Floating Luxury Hamper Card */}
+          {/* Right Column: Floating Luxury Hamper Card with GPU-accelerated CSS Hover */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
             className="lg:col-span-5"
           >
-            <div className="group relative rounded-3xl border border-[#004AAD]/15 bg-white p-3 shadow-luxury-hover backdrop-blur-2xl transition-all duration-500 hover:border-[#FF6B00]/40 hover:shadow-[0_28px_65px_-12px_rgba(0,74,173,0.22)]">
+            <div className="group relative rounded-3xl border border-[#004AAD]/15 bg-white p-3 shadow-luxury-card transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.01] hover:border-[#FF6B00]/40 hover:shadow-[0_24px_50px_-12px_rgba(0,74,173,0.18)] will-change-transform [transform:translate3d(0,0,0)]">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <img
                   src="assets/images/executive-gift-box.jpg"
                   alt="Circle One Executive Presentation Hamper"
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  loading="eager"
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 will-change-transform"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#004AAD]/30 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#004AAD]/25 via-transparent to-transparent" />
               </div>
 
-              {/* Floating Frosted Glass Badge */}
-              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between rounded-xl border border-white/80 bg-white/95 p-4 shadow-xl backdrop-blur-xl">
+              {/* Floating Badge */}
+              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between rounded-xl border border-white/80 bg-white/95 p-4 shadow-md backdrop-blur-md">
                 <div>
                   <h4 className="font-heading text-sm font-extrabold text-[#004AAD] sm:text-base">
                     Executive Elite Hamper
@@ -172,6 +173,8 @@ export const Hero: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+Hero.displayName = "Hero";
 
 export default Hero;
