@@ -1,74 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" fill="none" class="circleone-brand-logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 392 114" fill="none" class="circleone-brand-logo">
   <defs>
-    <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#0b57d0" flood-opacity="0.35"/>
-    </filter>
     <filter id="glow-orange" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#ff5500" flood-opacity="0.45"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#ff6b00" flood-opacity="0.35"/>
     </filter>
     <linearGradient id="blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e6fff" />
-      <stop offset="100%" stop-color="#084ec2" />
+      <stop offset="0%" stop-color="#1A67D2" />
+      <stop offset="100%" stop-color="#004AAD" />
     </linearGradient>
     <linearGradient id="orange-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ff7315" />
-      <stop offset="100%" stop-color="#f04a00" />
+      <stop offset="0%" stop-color="#FF8533" />
+      <stop offset="100%" stop-color="#FF6B00" />
     </linearGradient>
   </defs>
 
-  <!-- Emblem Mark at (80, 80) -->
-  <g transform="translate(80, 80)">
-    <!-- 3 Concentric Blue Arcs (approx 270 deg from -45 to +225 deg) -->
-    <!-- Outer Arc: R=68, stroke=14 -->
-    <path d="M 48.08 -48.08 A 68 68 0 1 0 48.08 48.08" 
-          fill="none" stroke="url(#blue-grad)" stroke-width="13" stroke-linecap="butt" />
+  <!-- Emblem Mark at (60, 57) -->
+  <g transform="translate(60, 57)">
+    <!-- 3 Concentric Royal Blue Arcs (270 deg from -45 to +225 deg) -->
+    <!-- Outer Arc: R=48, stroke=10 -->
+    <path d="M 33.94 -33.94 A 48 48 0 1 0 33.94 33.94" 
+          fill="none" stroke="url(#blue-grad)" stroke-width="10" stroke-linecap="butt" />
     
-    <!-- Middle Arc: R=49, stroke=13 -->
-    <path d="M 34.65 -34.65 A 49 49 0 1 0 34.65 34.65" 
-          fill="none" stroke="url(#blue-grad)" stroke-width="12" stroke-linecap="butt" />
+    <!-- Middle Arc: R=34, stroke=9 -->
+    <path d="M 24.04 -24.04 A 34 34 0 1 0 24.04 24.04" 
+          fill="none" stroke="url(#blue-grad)" stroke-width="9" stroke-linecap="butt" />
     
-    <!-- Inner Arc: R=31, stroke=12 -->
-    <path d="M 21.92 -21.92 A 31 31 0 1 0 21.92 21.92" 
-          fill="none" stroke="url(#blue-grad)" stroke-width="12" stroke-linecap="butt" />
+    <!-- Inner Arc: R=21, stroke=8 -->
+    <path d="M 14.85 -14.85 A 21 21 0 1 0 14.85 14.85" 
+          fill="none" stroke="url(#blue-grad)" stroke-width="8" stroke-linecap="butt" />
 
-    <!-- Solid Orange Wedge connecting from inner radius 25 to outer radius 75 between -45 deg and +45 deg -->
-    <path d="M 17.68 -17.68 
-             L 53.03 -53.03 
-             A 75 75 0 0 1 53.03 53.03 
-             L 17.68 17.68 
-             A 25 25 0 0 0 17.68 -17.68 Z" 
+    <!-- Solid Vibrant Orange Wedge between -45 deg and +45 deg -->
+    <path d="M 11.31 -11.31 
+             L 38.18 -38.18 
+             A 54 54 0 0 1 38.18 38.18 
+             L 11.31 11.31 
+             A 16 16 0 0 0 11.31 -11.31 Z" 
           fill="url(#orange-grad)" filter="url(#glow-orange)" />
   </g>
 
-  <!-- Text "CIRCLE" & "ONE" -->
-  <g transform="translate(175, 96)">
-    <!-- Bold CIRCLE in brand blue -->
-    <text x="0" y="0" 
-          font-family="'Plus Jakarta Sans', 'Inter', 'Outfit', sans-serif" 
+  <!-- Bold CIRCLE in official Royal Blue #004AAD -->
+  <text x="124" y="66" 
+        textLength="184" 
+        lengthAdjust="spacingAndGlyphs"
+        font-family="'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif" 
+        font-weight="900" 
+        font-size="54" 
+        fill="url(#blue-grad)">CIRCLE</text>
+
+  <!-- ONE badge snugly positioned at x=314 (only 6px gap from CIRCLE!) -->
+  <g transform="translate(314, 25)">
+    <rect x="0" y="0" width="68" height="43" rx="10" fill="url(#orange-grad)" filter="url(#glow-orange)"/>
+    <text x="34" y="31" 
+          text-anchor="middle" 
+          font-family="'Outfit', 'Plus Jakarta Sans', sans-serif" 
           font-weight="900" 
-          font-size="62" 
-          letter-spacing="-1.5px" 
-          fill="url(#blue-grad)">CIRCLE</text>
-    
-    <!-- ONE badge / accent in radiant orange -->
-    <g transform="translate(248, -48)">
-      <rect x="0" y="0" width="76" height="52" rx="10" fill="url(#orange-grad)" filter="url(#glow-orange)"/>
-      <text x="38" y="36" 
-            text-anchor="middle" 
-            font-family="'Outfit', sans-serif" 
-            font-weight="900" 
-            font-size="28" 
-            letter-spacing="1px" 
-            fill="#ffffff">ONE</text>
-    </g>
-    
-    <!-- Subtitle: Corporate Gifting & Merchandising -->
-    <text x="3" y="26" 
-          font-family="'Plus Jakarta Sans', sans-serif" 
-          font-weight="700" 
-          font-size="12" 
-          letter-spacing="4px" 
-          fill="#475569" 
-          text-transform="uppercase">B2B Corporate Merchandising</text>
+          font-size="24" 
+          letter-spacing="0.5px" 
+          fill="#ffffff">ONE</text>
   </g>
+
+  <!-- Subtitle: High-Contrast, Bold, Crystal-Clear "B2B CORPORATE MERCHANDISING" -->
+  <text x="125" y="93" 
+        textLength="257" 
+        lengthAdjust="spacingAndGlyphs"
+        font-family="'Plus Jakarta Sans', 'Outfit', -apple-system, sans-serif" 
+        font-weight="800" 
+        font-size="15.5" 
+        letter-spacing="1.8px" 
+        fill="#004AAD">B2B CORPORATE MERCHANDISING</text>
 </svg>

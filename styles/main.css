@@ -455,9 +455,15 @@ button, input, select, textarea {
 }
 
 .brand-logo-img {
-  height: 48px;
+  height: 52px;
   width: auto;
-  transition: transform var(--transition);
+  max-width: 230px;
+  display: block;
+  transition: all var(--transition);
+}
+
+.site-nav.scrolled .brand-logo-img {
+  height: 46px;
 }
 
 .brand-logo-img:hover {
@@ -2282,6 +2288,10 @@ button, input, select, textarea {
     box-shadow: 0 8px 24px rgba(0, 30, 80, 0.08);
   }
   .brand-logo-img {
+    height: 44px;
+    max-width: 190px;
+  }
+  .site-nav.scrolled .brand-logo-img {
     height: 38px;
   }
   .desktop-nav {
