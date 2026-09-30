@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
+  <defs>
+    <linearGradient id="mark-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e6fff" />
+      <stop offset="100%" stop-color="#084ec2" />
+    </linearGradient>
+    <linearGradient id="mark-orange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff7315" />
+      <stop offset="100%" stop-color="#f04a00" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(80, 80)">
+    <!-- 3 Concentric Blue Arcs (approx 270 deg from -45 to +225 deg) -->
+    <!-- Outer Arc: R=66, stroke=13 -->
+    <path d="M 46.67 -46.67 A 66 66 0 1 0 46.67 46.67" 
+          fill="none" stroke="url(#mark-blue)" stroke-width="12" stroke-linecap="butt" />
+    
+    <!-- Middle Arc: R=48, stroke=12 -->
+    <path d="M 33.94 -33.94 A 48 48 0 1 0 33.94 33.94" 
+          fill="none" stroke="url(#mark-blue)" stroke-width="11" stroke-linecap="butt" />
+    
+    <!-- Inner Arc: R=31, stroke=11 -->
+    <path d="M 21.92 -21.92 A 31 31 0 1 0 21.92 21.92" 
+          fill="none" stroke="url(#mark-blue)" stroke-width="11" stroke-linecap="butt" />
+
+    <!-- Solid Orange Wedge connecting from inner radius 25 to outer radius 72 between -45 deg and +45 deg -->
+    <path d="M 17.68 -17.68 
+             L 50.91 -50.91 
+             A 72 72 0 0 1 50.91 50.91 
+             L 17.68 17.68 
+             A 25 25 0 0 0 17.68 -17.68 Z" 
+          fill="url(#mark-orange)" />
+  </g>
+</svg>
